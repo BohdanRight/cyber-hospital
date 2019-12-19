@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Receivings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receivings.each do |receiving| %>
+      <tr>
+        <td><%= link_to 'Show', receiving %></td>
+        <td><%= link_to 'Edit', edit_receiving_path(receiving) %></td>
+        <td><%= link_to 'Destroy', receiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Receiving', new_receiving_path %>
