@@ -30,14 +30,14 @@ class ReceivingsController < ApplicationController
       if
       Receiving.find_by_date(@receiving.date) == nil ||
           Receiving.find_by_time(@receiving.time) == nil ||
-          Receiving.find_by_patient_id(@receiving.patient_id) == nil ||
+          Receiving.find_by_patient_id(@receiving.patient_id) == nil
           Receiving.find_by_doctor_id_id(@receiving.doctor_id) == nil
       @receiving.save
         format.html { redirect_to @receiving, notice: 'Receiving was successfully created.' }
-        #format.json { render :show, status: :created, location: @receiving }
+        format.json { render :show, status: :created, location: @receiving }
       else
         format.html { render :new }
-        #format.json { render json: @receiving.errors, status: :unprocessable_entity }
+        format.json { render json: @receiving.errors, status: :unprocessable_entity }
       end
     end
   end

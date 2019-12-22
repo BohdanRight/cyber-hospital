@@ -15,7 +15,7 @@ class DoctorsController < ApplicationController
   # GET /doctors/1
   # GET /doctors/1.json
   def show
-    #@doctors = Doctor.all
+    @doctors = Doctor.all
   end
 
   # GET /doctors/1/edit
@@ -34,10 +34,10 @@ class DoctorsController < ApplicationController
           Doctor.find_by_specialty(@doctor.specialty) == nil
       @doctor.save
         format.html { redirect_to @doctor, notice: 'Лікар успішно створенй.' }
-        #format.json { render :show, status: :created, location: @doctor }
+        format.json { render :show, status: :created, location: @doctor }
       else
         format.html { render :new }
-        #format.json { render json: @doctor.errors, status: :unprocessable_entity }
+        format.json { render json: @doctor.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,7 +48,7 @@ class DoctorsController < ApplicationController
     respond_to do |format|
       if @doctor.update(doctor_params)
         format.html { redirect_to @doctor, notice: 'Лікар успішно оновлений.' }
-        #format.json { render :show, status: :ok, location: @doctor }
+        format.json { render :show, status: :ok, location: @doctor }
       else
         format.html { render :edit }
         #format.json { render json: @doctor.errors, status: :unprocessable_entity }
