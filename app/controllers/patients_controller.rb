@@ -27,12 +27,16 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
 
     respond_to do |format|
-      if @patient.save
+      if
+      Patient.find_by_name(@patient.name) == nil ||
+          Patient.find_by_phone(@patient.phone) == nil ||
+          Patient.find_by_birth_date(@patient.birth_date) == nil
+      @patient.save
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-        format.json { render :show, status: :created, location: @patient }
+        #format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
+        #format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +47,10 @@ class PatientsController < ApplicationController
     respond_to do |format|
       if @patient.update(patient_params)
         format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
-        format.json { render :show, status: :ok, location: @patient }
+        #format.json { render :show, status: :ok, location: @patient }
       else
         format.html { render :edit }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
+        #format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +73,6 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.fetch(:patient, {})
+      params.fetch(:patient).permit(:name, :phone, :birth_date, :diagnosis)
     end
 end

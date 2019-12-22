@@ -11,7 +11,44 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+<div class="field">
+  <%= form.label 'ПІП' %>
+  <%= form.text_field :name,
+                      :size => '30',
+                      #:pattern => '\d{1,9}$',
+                      :placeholder => "Введіть ПІП",
+                      required: true %>
+</div>
+
+<div class="field">
+  <%= form.label 'Номер телефону' %>
+  <%= form.text_field :phone,
+                      :size => '30',
+                      #:pattern => '\d{1,9}$',
+                      :placeholder => "Введіть номер телефону",
+                      required: true %>
+</div>
+
+<div class="field">
+  <%= form.label 'Дата народження' %>
+  <%= form.text_field :birth_date,
+                      :size => '30',
+                      #:pattern => '.{1,10}',
+                      :placeholder => "Введіть дату народження",
+                      required: true %>
+</div>
+
+<div class="field">
+  <%= form.label 'Діагноз' %>
+  <%= form.text_area :diagnosis,
+                      :size => '30',
+                      #:pattern => '.{1,10}',
+                      :placeholder => "Введіть діагноз",
+                      required: false %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>

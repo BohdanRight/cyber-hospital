@@ -11,6 +11,33 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label 'ПІП' %>
+    <%= form.text_field :name,
+                        :size => '30',
+                        #:pattern => '\d{1,9}$',
+                        :placeholder => "Введіть ПІП",
+                        required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Номер телефону' %>
+    <%= form.text_field :phone,
+                        :size => '30',
+                        #:pattern => '\d{1,9}$',
+                        :placeholder => "Введіть номер телефону",
+                        required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Фах' %>
+    <%= form.text_field :specialty,
+                        :size => '30',
+                        #:pattern => '.{1,10}',
+                        :placeholder => "Введіть фах",
+                        required: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

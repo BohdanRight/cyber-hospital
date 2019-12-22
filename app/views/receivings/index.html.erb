@@ -1,6 +1,13 @@
+<%= link_to 'Лікарі', controller: 'doctors' %>
+<%= link_to 'Пацієнти', controller: 'patients' %>
+<%= link_to 'Запис на прийом', controller: 'receivings' %>
+<%= link_to 'Видача довідки', controller: 'certificates' %>
+<br>
+<br>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Receivings</h1>
+<h1>Запис на прийом</h1>
 
 <table>
   <thead>
@@ -12,9 +19,13 @@
   <tbody>
     <% @receivings.each do |receiving| %>
       <tr>
-        <td><%= link_to 'Show', receiving %></td>
-        <td><%= link_to 'Edit', edit_receiving_path(receiving) %></td>
-        <td><%= link_to 'Destroy', receiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= receiving.date %></td>
+        <td><%= receiving.time %></td>
+        <td><%= receiving.patient.name %></td>
+        <td><%= receiving.doctor.name %></td>
+        <td><%= link_to 'Переглянути', receiving %></td>
+        <td><%= link_to 'Редагувати', edit_receiving_path(receiving) %></td>
+        <td><%= link_to 'Видалити', receiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Receiving', new_receiving_path %>
+<%= link_to 'Новий запис', new_receiving_path %>

@@ -27,12 +27,17 @@ class ReceivingsController < ApplicationController
     @receiving = Receiving.new(receiving_params)
 
     respond_to do |format|
-      if @receiving.save
+      if
+      Receiving.find_by_date(@receiving.date) == nil ||
+          Receiving.find_by_time(@receiving.time) == nil ||
+          Receiving.find_by_patient_id(@receiving.patient_id) == nil ||
+          Receiving.find_by_doctor_id_id(@receiving.doctor_id) == nil
+      @receiving.save
         format.html { redirect_to @receiving, notice: 'Receiving was successfully created.' }
-        format.json { render :show, status: :created, location: @receiving }
+        #format.json { render :show, status: :created, location: @receiving }
       else
         format.html { render :new }
-        format.json { render json: @receiving.errors, status: :unprocessable_entity }
+        #format.json { render json: @receiving.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +74,6 @@ class ReceivingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def receiving_params
-      params.fetch(:receiving, {})
+      params.fetch(:receiving).permit(:date, :time, :patient_id, :doctor_id)
     end
 end
