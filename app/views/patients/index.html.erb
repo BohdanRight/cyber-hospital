@@ -1,10 +1,3 @@
-<br>
-<%= link_to 'Лікарі', controller: 'doctors' %>
-<%= link_to 'Пацієнти', controller: 'patients' %>
-<%= link_to 'Запис на прийом', controller: 'receivings' %>
-<%= link_to 'Видача довідки', controller: 'certificates' %>
-<br>
-
 <p id="notice"><%= notice %></p>
 
 <h1>Пацієнти</h1>
@@ -22,7 +15,7 @@
         <td><%= patient.name %></td>
         <td><%= patient.phone %></td>
         <td><%= patient.birth_date %></td>
-        <td><%=  patient.diagnosis %></td>
+        <td><%= patient.diagnosis %></td>
         <td><%= link_to 'Переглянути', patient %></td>
         <td><%= link_to 'Редагувати', edit_patient_path(patient) %></td>
         <td><%= link_to 'Видалити', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>

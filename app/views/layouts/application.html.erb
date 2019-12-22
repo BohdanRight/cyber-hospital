@@ -9,9 +9,12 @@
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+  <%= link_to 'Лікарі', doctors_path %>
+  <%= link_to 'Пацієнти', patients_path %>
+  <%= link_to 'Запис на прийом', receivings_path %>
+  <%= link_to 'Створити довідку', certificates_path %>
+  <%= yield %>
   </body>
 </html>
 
