@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :certificates
+  resources :certificates, path: 'certificates'
   resources :receivings, path: 'receivings'
-  resources :doctors
+  resources :doctors, path: 'doctors'
   resources :patients, path: 'patients'
   root 'doctors#index'
 
