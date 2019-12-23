@@ -22,7 +22,7 @@
         <td><%= doctor.name %></td>
         <td><%= doctor.phone %></td>
         <td><%= doctor.specialty %></td>
-        <td><%= link_to 'Переглянути', doctor %></td>
+<!--        <td><%#= link_to 'Переглянути', doctor %></td>-->
         <td><%= link_to 'Редагувати', edit_doctor_path(doctor) %></td>
         <td><%= link_to 'Видалити', doctor, method: :delete, data: { confirm: 'Ви впевнені?' } %></td>
       </tr>
