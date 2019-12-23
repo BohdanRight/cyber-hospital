@@ -1,0 +1,12 @@
+<h1>Welcome</h1>
+
+<%if logged_in?%>
+  <h1>You are LoggedOut<%= current_user.username=nil %></h1>
+<% else %>
+  <h1>LoggedOut</h1>
+<%end%>
+
+
+
+
+<%= button_to "Login", '/login', method: :get%>

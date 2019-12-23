@@ -1,2 +1,10 @@
-<h1>Sessions#create</h1>
-<p>Find me in app/views/sessions/create.html.erb</p>
+<h1>Access Denied</h1>
+<%if logged_in?%>
+  <h1>Check your password<%= current_user.username=nil%></h1>
+<% else %>
+  <h1>LoggedOut</h1>
+<%end%>
+
+<%= button_to "Login", '/login', method: :get%>
+
+<%= button_to "Sign Up", '/users/new', method: :get%>
