@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/welcome'
+      redirect_to root_url
     end
   end
 
@@ -17,7 +17,10 @@ class SessionsController < ApplicationController
 
   end
 
-  def login
+  def delete
+    # Remove the user id from the session
+    session[:current_user] = nil
+    current_user.username=nil
   end
 
   def page_requires_login

@@ -1,35 +1,13 @@
-<!--<h1>Welcome</h1>-->
+<h1>Welcome</h1>
 
-<%#if logged_in?%>
-<!--  <h1>You are Logged In, <%#= current_user.username %></h1>-->
-<%#end%>
+<%if logged_in?%>
+  <h1>You are Logged In, <%= current_user.username %></h1>
+<% else %>
+<h1>LoggedOut</h1>
+<%end%>
 
-<%#= button_to "Login", '/login', method: :get%>
 
-<%#= button_to "Sign Up", '/users/new', method: :get%>
 
-<h1>Welcome, Doctor</h1>
-<ul>
-  <% if logged_in?%>
-<!--    <li>-->
-      <%#= button_to "Sign Out", destroy_user_session_path, :method => :delete %>
-<!--    </li>-->
 
-    <li>
-      <%= 'Username: ' + current_user.username %>
-    </li>
 
-  <% else %>
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-9 conversion-text pt-5">
-          <%= button_to "Login", '/login', method: :get%>
-        </div>
-        <div class="ml-auto col-2 text-right align-middle pt-5">
-          <%= button_to "Sign Up", '/users/new', method: :get%>
-        </div>
-      </div>
-    </div>
-    </div>
-  <% end %>
-</ul>
+<%= button_to "Sign Out", '/logout', method: :get%>
