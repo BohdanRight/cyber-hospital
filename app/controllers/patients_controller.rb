@@ -32,11 +32,11 @@ class PatientsController < ApplicationController
           Patient.find_by_phone(@patient.phone) == nil ||
           Patient.find_by_birth_date(@patient.birth_date) == nil
       @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-        #format.json { render :show, status: :created, location: @patient }
+        format.html { redirect_to patients_url, notice: 'Пацієнт створений.' }
+        format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
-        #format.json { render json: @patient.errors, status: :unprocessable_entity }
+        format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,11 +46,11 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
-        #format.json { render :show, status: :ok, location: @patient }
+        format.html { redirect_to patients_url, notice: 'Пацієнт оновленний.' }
+        format.json { render :show, status: :ok, location: @patient }
       else
         format.html { render :edit }
-        #format.json { render json: @patient.errors, status: :unprocessable_entity }
+        format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,10 +58,11 @@ class PatientsController < ApplicationController
   # DELETE /patients/1
   # DELETE /patients/1.json
   def destroy
-    @patient.destroy
+    if @patient.destroy
     respond_to do |format|
-      format.html { redirect_to patients_url, notice: 'Patient was successfully destroyed.' }
+      format.html { redirect_to patients_url, notice: 'Пацієнт видаленний.' }
       format.json { head :no_content }
+      end
     end
   end
 

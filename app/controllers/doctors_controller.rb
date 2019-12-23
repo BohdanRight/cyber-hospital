@@ -33,7 +33,7 @@ class DoctorsController < ApplicationController
           Doctor.find_by_phone(@doctor.phone) == nil ||
           Doctor.find_by_specialty(@doctor.specialty) == nil
       @doctor.save
-        format.html { redirect_to @doctor, notice: 'Лікар успішно створенй.' }
+        format.html { redirect_to doctors_url, notice: 'Лікар створенй.' }
         format.json { render :show, status: :created, location: @doctor }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class DoctorsController < ApplicationController
   def update
     respond_to do |format|
       if @doctor.update(doctor_params)
-        format.html { redirect_to @doctor, notice: 'Лікар успішно оновлений.' }
+        format.html { redirect_to doctors_url, notice: 'Лікар оновлений.' }
         format.json { render :show, status: :ok, location: @doctor }
       else
         format.html { render :edit }
@@ -60,12 +60,13 @@ class DoctorsController < ApplicationController
   # DELETE /doctors/1.json
   def destroy
     if
-    #Doctor.find_by_doctor_id(@recevings.doctor_id) == nil
+    #Doctor.find_by_doctor_id(@recevings.doctor_id) == nil ||
+    #    Doctor.find_by_doctor_id(@certificstes.doctor_id) == nil
 
     @doctor.destroy
     end
     respond_to do |format|
-      format.html { redirect_to doctors_url, notice: 'Doctor was successfully destroyed.' }
+      format.html { redirect_to doctors_url, notice: 'Лікар видаленний.' }
       format.json { head :no_content }
     end
   end

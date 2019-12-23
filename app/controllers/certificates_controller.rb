@@ -1,6 +1,10 @@
 class CertificatesController < ApplicationController
   before_action :set_certificate, only: [:show, :edit, :update, :destroy]
 
+#  respond_to :docx
+#  def my_action
+#  respond_with(@object, content: '<html><head></head><body><p>Hello</p></body></html>', filename: 'my_file.docx')
+#end
   # GET /certificates
   # GET /certificates.json
   def index
@@ -27,8 +31,11 @@ class CertificatesController < ApplicationController
     @certificate = Certificate.new(certificate_params)
 
     respond_to do |format|
-      if @certificate.save
-        format.html { redirect_to @certificate, notice: 'Certificate was successfully created.' }
+      if
+      Certificate.find_by_patient_id(@certificate.patient_id) == nil || Certificate.find_by_doctor_id(@certificate.doctor_id) == nil ||
+      Certificate.find_by_income_date(@certificate.income_date) == nil || Certificate.find_by_discharge_date(@certificate.discharge_date) == nil
+      @certificate.save
+        format.html { redirect_to certificates_url, notice: 'Довідка створена.' }
         format.json { render :show, status: :created, location: @certificate }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class CertificatesController < ApplicationController
   def update
     respond_to do |format|
       if @certificate.update(certificate_params)
-        format.html { redirect_to @certificate, notice: 'Certificate was successfully updated.' }
+        format.html { redirect_to certificates_url, notice: 'Довідка редагована.' }
         format.json { render :show, status: :ok, location: @certificate }
       else
         format.html { render :edit }
@@ -56,7 +63,7 @@ class CertificatesController < ApplicationController
   def destroy
     @certificate.destroy
     respond_to do |format|
-      format.html { redirect_to certificates_url, notice: 'Certificate was successfully destroyed.' }
+      format.html { redirect_to certificates_url, notice: 'Довідка видалена.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +76,6 @@ class CertificatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def certificate_params
-      params.fetch(:certificate, {})
+      params.fetch(:certificate).permit(:patient_id, :doctor_id, :income_date, :discharge_date)
     end
 end

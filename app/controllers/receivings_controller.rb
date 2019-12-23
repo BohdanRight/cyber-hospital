@@ -28,12 +28,10 @@ class ReceivingsController < ApplicationController
 
     respond_to do |format|
       if
-      Receiving.find_by_date(@receiving.date) == nil ||
-          Receiving.find_by_time(@receiving.time) == nil ||
-          Receiving.find_by_patient_id(@receiving.patient_id) == nil
-          Receiving.find_by_doctor_id_id(@receiving.doctor_id) == nil
+      Receiving.find_by_date(@receiving.date) == nil || Receiving.find_by_time(@receiving.time) == nil ||
+      Receiving.find_by_patient_id(@receiving.patient_id) == nil || Receiving.find_by_doctor_id(@receiving.doctor_id) == nil
       @receiving.save
-        format.html { redirect_to @receiving, notice: 'Receiving was successfully created.' }
+        format.html { redirect_to receivings_url, notice: 'Receiving was successfully created.' }
         format.json { render :show, status: :created, location: @receiving }
       else
         format.html { render :new }
@@ -47,7 +45,7 @@ class ReceivingsController < ApplicationController
   def update
     respond_to do |format|
       if @receiving.update(receiving_params)
-        format.html { redirect_to @receiving, notice: 'Receiving was successfully updated.' }
+        format.html { redirect_to receivings_url, notice: 'Receiving was successfully updated.' }
         format.json { render :show, status: :ok, location: @receiving }
       else
         format.html { render :edit }

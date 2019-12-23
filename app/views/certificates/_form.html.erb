@@ -11,6 +11,36 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label 'Пацієнт' %>
+    <%= form.collection_select :patient_id,
+                               Patient.order(:name),:id,:name, include_blank: false %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Лікар' %>
+    <%= form.collection_select :doctor_id,
+                               Doctor.order(:name),:id,:name, include_blank: false %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Дата надходження' %>
+    <%= form.text_field :income_date,
+                        :size => '30',
+                        #:pattern => '\d{1,9}$',
+                        :placeholder => "Введіть дату",
+                        required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Дата виписки' %>
+    <%= form.text_field :discharge_date,
+                        :size => '30',
+                        #:pattern => '\d{1,9}$',
+                        :placeholder => "Введіть дату",
+                        required: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

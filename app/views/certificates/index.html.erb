@@ -2,19 +2,24 @@
 
 <h1>Довідки</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table border="1">
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
 
   <tbody>
     <% @certificates.each do |certificate| %>
       <tr>
+        <td><%= certificate.patient.name%></td>
+        <td><%= certificate.doctor.name%></td>
+        <td><%= certificate.income_date%></td>
+        <td><%= certificate.discharge_date%></td>
         <td><%= link_to 'Переглянути', certificate %></td>
         <td><%= link_to 'Редагувати', edit_certificate_path(certificate) %></td>
-        <td><%= link_to 'Видалити', certificate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Видалити', certificate, method: :delete, data: { confirm: 'Ви впевнені?' } %></td>
+<!--        <td><%#= link_to 'Завантажити', my_action_certificate_path %></td>-->
       </tr>
     <% end %>
   </tbody>
