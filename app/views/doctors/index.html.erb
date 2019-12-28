@@ -3,7 +3,8 @@
 <%= link_to 'Пацієнти', patients_path %>
 <%= link_to 'Запис на прийом', receivings_path %>
 <%= link_to 'Створити довідку', certificates_path %>
-<%= link_to "Вийти", '/logout', method: :get%>
+<%= link_to 'Вийти', destroy_user_session_path,
+            method: :delete %>
 
 <p id="notice"><%= notice %></p>
 

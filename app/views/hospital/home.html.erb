@@ -1,0 +1,11 @@
+<h1>CyberHospital</h1>
+<% if current_user %>
+  <%= link_to 'На головну', doctors_path %>
+  <%= link_to 'Вийти', destroy_user_session_path,
+              method: :delete %>
+<% else %>
+  <%= link_to 'Регістрація', new_user_registration_path %>
+
+  <%= link_to 'Увійти', new_user_session_path %>
+<% end %>
+
