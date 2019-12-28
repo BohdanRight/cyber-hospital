@@ -1,14 +1,14 @@
 <br>
-<%= link_to 'Лікарі', doctors_path %>
-<%= link_to 'Пацієнти', patients_path %>
-<%= link_to 'Запис на прийом', receivings_path %>
-<%= link_to 'Створити довідку', certificates_path %>
-<%= link_to "Вийти", '/logout', method: :get%>
+<%#= link_to 'Лікарі', doctors_path %>
+<%#= link_to 'Пацієнти', patients_path %>
+<%#= link_to 'Запис на прийом', receivings_path %>
+<%#= link_to 'Створити довідку', certificates_path %>
+<%#= link_to "Вийти", '/logout', method: :get%>
 
 <p id="notice"><%= notice %></p>
 
 <h1>Довідки</h1>
-
+<%= link_to 'Створити довідку', new_certificate_path %>
 <table border="1">
 <!--  <thead>-->
 <!--    <tr>-->
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'Нова довідка', new_certificate_path %>
+
