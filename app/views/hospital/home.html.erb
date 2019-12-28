@@ -1,11 +1,15 @@
-<h1>CyberHospital</h1>
-<% if current_user %>
-  <%= link_to 'На головну', doctors_path %>
-  <%= link_to 'Вийти', destroy_user_session_path,
-              method: :delete %>
+<!--<h1>CyberHospital</h1>-->
+<%# if current_user %>
+  <%#= link_to 'На головну', doctors_path %>
+  <%#= link_to 'Вийти', destroy_user_session_path, method: :delete %>
+<%# else %>
+  <%#= link_to 'Регістрація', new_user_registration_path %>
+
+  <%#= link_to 'Увійти', new_user_session_path %>
+<%# end %>
+
+<h3>Вітаємо Вас в системі CyberHospital!</h3>
+<% if !current_user.admin%>
+<p>Ви можете створити мед.карту та записатись на прийом до лікаря.</p>
 <% else %>
-  <%= link_to 'Регістрація', new_user_registration_path %>
-
-  <%= link_to 'Увійти', new_user_session_path %>
 <% end %>
-

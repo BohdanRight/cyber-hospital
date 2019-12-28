@@ -1,15 +1,15 @@
 <br>
-<%= link_to 'Лікарі', doctors_path %>
-<%= link_to 'Пацієнти', patients_path %>
-<%= link_to 'Запис на прийом', receivings_path %>
-<%= link_to 'Створити довідку', certificates_path %>
-<%= link_to 'Вийти', destroy_user_session_path,
-            method: :delete %>
+
+<%#= link_to 'Лікарі', doctors_path %>
+<%#= link_to 'Пацієнти', patients_path %>
+<%#= link_to 'Запис на прийом', receivings_path %>
+<%#= link_to 'Створити довідку', certificates_path %>
+<%#= link_to 'Вийти', destroy_user_session_path, method: :delete %>
 
 <p id="notice"><%= notice %></p>
 
 <h1>Лікарі</h1>
-
+<%= link_to 'Створити лікаря', new_doctor_path %>
 <table border="1">
 <!--  <thead>-->
 <!--    <tr>-->
@@ -33,4 +33,4 @@
 
 <br>
 
-<%= link_to 'Новий лікар', new_doctor_path %>
+<%#= link_to 'Новий лікар', new_doctor_path %>
