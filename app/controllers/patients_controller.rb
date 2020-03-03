@@ -32,7 +32,7 @@ class PatientsController < ApplicationController
           Patient.find_by_phone(@patient.phone) == nil ||
           Patient.find_by_birth_date(@patient.birth_date) == nil
       @patient.save
-        format.html { redirect_to patients_url, notice: 'Пацієнт створений.' }
+        format.html { redirect_to patients_url }
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
