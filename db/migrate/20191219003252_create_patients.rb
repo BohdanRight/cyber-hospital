@@ -6,7 +6,6 @@ class CreatePatients < ActiveRecord::Migration[6.0]
       t.string :phone
       t.date :birth_date
       t.string :diagnosis
-
     end
   end
 end
