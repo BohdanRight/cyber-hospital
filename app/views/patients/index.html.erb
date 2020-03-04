@@ -25,7 +25,9 @@
         <td><%= patient.diagnosis %></td>
 <!--        <td><%#= link_to 'Переглянути', patient %></td>-->
         <td><%= link_to 'Редагувати', edit_patient_path(patient) %></td>
+        <% if current_user && current_user.admin %>
         <td><%= link_to 'Видалити', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

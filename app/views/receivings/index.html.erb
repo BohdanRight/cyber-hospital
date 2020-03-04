@@ -25,7 +25,9 @@
         <td><%= receiving.doctor.name %></td>
 <!--        <td><%#= link_to 'Переглянути', receiving %></td>-->
         <td><%= link_to 'Редагувати', edit_receiving_path(receiving) %></td>
+        <% if current_user && current_user.admin %>
         <td><%= link_to 'Видалити', receiving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
