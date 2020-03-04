@@ -72,7 +72,7 @@
             <% if current_user && current_user.admin %>
             <h3>Меню лікаря</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Розділи</li>
+<!--              <li class="nav-header"></li>-->
               <li><%= link_to 'Лікарі', doctors_path %></li>
               <li><%= link_to 'Створити довідку', certificates_path %></li>
               <li><%= link_to 'Записи на прийом', receivings_path %></li>
@@ -85,7 +85,7 @@
               <% if current_user %>
               <h3>Меню пацієнта</h3>
               <ul class="nav nav-list">
-                <li class="nav-header">Розділи</li>
+<!--                <li class="nav-header"></li>-->
                 <li><%= link_to 'Запис на прийом', receivings_path %></li>
                   <li><%= link_to 'Вихід', destroy_user_session_path, method: :delete %></li>
               </ul>
@@ -100,9 +100,9 @@
       </div><!--/row-->
 
 
-      <footer>
-        <p>&copy;CyberHospital 2020</p>
-      </footer>
+<!--      <footer>-->
+<!--        <p>&copy;CyberHospital 2020</p>-->
+<!--      </footer>-->
 
     </div> <!-- /container -->
 
