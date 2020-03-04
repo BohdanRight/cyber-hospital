@@ -4,7 +4,7 @@ class CreatePatients < ActiveRecord::Migration[6.0]
 
       t.string :name
       t.string :phone
-      t.date :birth_date
+      t.string :birth_date
       t.string :diagnosis
     end
   end

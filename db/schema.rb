@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2019_12_28_001606) do
   create_table "certificates", force: :cascade do |t|
     t.integer "patient_id"
     t.integer "doctor_id"
-    t.date "income_date"
-    t.date "discharge_date"
+    t.string "income_date"
+    t.string "discharge_date"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 2019_12_28_001606) do
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.string "phone"
-    t.date "birth_date"
+    t.string "birth_date"
     t.string "diagnosis"
   end
 
   create_table "receivings", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
+    t.string "date"
+    t.string "time"
     t.integer "patient_id"
     t.integer "doctor_id"
   end
@@ -45,14 +45,11 @@ ActiveRecord::Schema.define(version: 2019_12_28_001606) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
